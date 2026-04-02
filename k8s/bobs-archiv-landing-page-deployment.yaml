@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bobs-archiv-landing-page
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bobs-archiv-landing-page
+  template:
+    metadata:
+      labels:
+        app: bobs-archiv-landing-page
+    spec:
+      containers:
+        - name: bobs-archiv-landing-page
+          image: ghcr.io/janne6565/bobs-archiv-landing-page:latest
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 10

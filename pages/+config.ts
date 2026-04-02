@@ -6,5 +6,7 @@ export default {
   description:
     "Dein Archiv für Die drei Fragezeichen – Entdecke Folgen, verfolge deinen Hörfortschritt und öffne Folgen direkt auf Spotify, Apple Music oder Deezer.",
 
+  prerender: true,
+
   extends: [vikeReact],
 } satisfies Config;
