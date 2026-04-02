@@ -15,6 +15,7 @@ spec:
       containers:
         - name: bobs-archiv-landing-page
           image: ghcr.io/janne6565/bobs-archiv-landing-page:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           livenessProbe:
